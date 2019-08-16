@@ -1,0 +1,16 @@
+.quasar
+.DS_Store
+.thumbs.db
+node_modules
+/dist
+
+# Editor directories and files
+.env.js
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*http
+*.http
+.idea
