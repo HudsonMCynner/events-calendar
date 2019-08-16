@@ -14,31 +14,31 @@
           <label class="legend-situacao relocated">REALOCADO </label>
           <label class="legend-situacao caceled">CANCELADO </label>
         </div>
-        <q-select
-          class="select-years"
-          @input="selectYear"
-          :value="currYear"
-          :options="anos"
-        />
-        <q-select
-          class="select-month"
-          @input="selectMonth"
-          :value="currMonth + 1"
-          :options="meses"
-        />
-        <span class="btn-calendar btn-reset">
-          <q-btn
-            @click="currentDate"
-            dense
-            flat
-            round
-          >
-            <q-tooltip>
-              {{ tooltipReset }}
-            </q-tooltip>
-            <q-icon name="fas fa-undo" />
-          </q-btn>
-        </span>
+        <!--<q-select-->
+          <!--class="select-years"-->
+          <!--@input="selectYear"-->
+          <!--:value="currYear"-->
+          <!--:options="anos"-->
+        <!--/>-->
+        <!--<q-select-->
+          <!--class="select-month"-->
+          <!--@input="selectMonth"-->
+          <!--:value="currMonth + 1"-->
+          <!--:options="meses"-->
+        <!--/>-->
+        <!--<span class="btn-calendar btn-reset">-->
+          <!--<q-btn-->
+            <!--@click="currentDate"-->
+            <!--dense-->
+            <!--flat-->
+            <!--round-->
+          <!--&gt;-->
+            <!--<q-tooltip>-->
+              <!--{{ tooltipReset }}-->
+            <!--</q-tooltip>-->
+            <!--<q-icon name="fas fa-undo" />-->
+          <!--</q-btn>-->
+        <!--</span>-->
       </div>
       <table
         class="table-calendar"
@@ -100,7 +100,7 @@
 <script>
 
 export default {
-  name: 'LancamentoFaltaConteudoListaTurmas',
+  name: 'Calendar',
   components: {},
   props: {
     value: {
@@ -422,98 +422,94 @@ export default {
 }
 </script>
 
-<style scoped>
-  :focus {
-    outline: none;
-  }
-  .dia-aula {
-    background: #209618;
-    color: #fff !important;
-    cursor: pointer;
-  }
-  .day-status {
-    border-radius: 200px 200px 200px 200px;
-    -moz-border-radius: 200px 200px 200px 200px;
-    -webkit-border-radius: 200px 200px 200px 200px;
-    border: 0px solid #000;
-    background: #022dff;
-    height: 7px;
-    width: 7px;
-    position: absolute;
-    bottom: 1px;
-    right: 1px;
-  }
-  .table-calendar td.normal:hover,
-  td.today:hover {
-    background: #189688;
-    color: #fff !important;
-    cursor: pointer;
-  }
-  .diaSelecionado {
-    background: #e7b53d;
-    color: #fff !important;
-    cursor: pointer;
-  }
-  .calendar-wrapper {
-    display: table;
-    width: 100%;
-    padding: 2px;
-    border: 1px solid #6b737c;
-    border-radius: 5px;
-    background: #fff;
-  }
-  .table-title {
-    position: relative;
-    display: flex;
-    flex-direction: row-reverse;
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+  :focus
+    outline none
+
+  .dia-aula
+    background #209618
+    color white !important
+    cursor pointer
+
+  .day-status
+    border-radius 200px 200px 200px 200px
+    -moz-border-radius 200px 200px 200px 200px
+    -webkit-border-radius 200px 200px 200px 200px
+    border 0px solid #000000
+    background #022dff
+    height 7px
+    width 7px
+    position absolute
+    bottom 1px
+    right 1px
+
+  .table-calendar td.normal:hover, td.today:hover
+    background #189688
+    color white !important
+    cursor pointer
+
+  .diaSelecionado
+    background #e7b53d
+    color white !important
+    cursor pointer
+
+  .calendar-wrapper
+    display table
+    width 100%
+    padding 2px
+    border 1px solid #6b737c
+    border-radius 5px
+    background #fff
+
+  .table-title
+    position relative
+    display flex
+    flex-direction row-reverse
     background: #ab8732;
     text-align: center;
     height: 33px;
-    padding: 2px;
-    color: #fff;
-  }
-  .table-title .btn-calendar {
-    width: 40px;
-  }
-  .table-title .btn-reset {
-    height: 30px;
-    margin-top: -2px;
-  }
-  .table-title .select-month {
-    width: 130px;
-  }
-  .table-title .select-years {
-    width: 100px;
-  }
-  .table-calendar {
-    width: 100%;
-    border: 1px solid #6b737c;
-    border-radius: 3px;
-    border-collapse: collapse;
-    color: #444;
-    height: calc(100vh - 320px);
+    padding: 2px
+    color: white;
+    .btn-calendar
+      width: 40px;
+    .btn-reset
+      height: 30px;
+      margin-top: -2px;
+    .select-month
+      width 130px
+    .select-years
+      width 100px
+
+  .table-calendar
+    width 100%
+    border 1px solid #6b737c
+    border-radius 3px
+    border-collapse collapse
+    color #444
+    height calc(100vh - 320px)
     user-select: none; /* supported by Chrome and Opera */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-  }
-  .table-calendar thead td {
-    height: 30px;
-    text-align: center;
-    border: 1px solid #6b737c;
-    width: 15%;
-    color: #28283b;
-  }
-  .table-calendar tbody td {
-    vertical-align: top;
-    padding-top: 20px;
-    height: 100px;
-    text-align: center;
-    border: 1px solid #6b737c;
-    width: 15%;
-  }
-  .dia-numero {
+
+    thead
+      td
+        height 30px
+        text-align center
+        border 1px solid #6b737c
+        width 15%
+        color #28283b
+    tbody
+      td
+        vertical-align: top;
+        padding-top: 20px;
+        height: 100px;
+        text-align center
+        border 1px solid #6b737c
+        width 15%
+
+  .dia-numero
     font-size: 14px;
     position: absolute;
     top: 0;
@@ -521,141 +517,128 @@ export default {
     width: 20px;
     height: 18px;
     background: #ab8732;
-    color: #fff;
+    color: white;
     text-align: center;
     border-bottom-right-radius: 5px;
-  }
-  .lista-agenda {
+
+  .lista-agenda
     display: flex;
-    flex-direction: column;
-    cursor: grabbing;
+    flex-direction:
+      column; cursor:
+    grabbing;
     height: 100%;
-  }
-  .agendamento,
-  .legend-situacao {
+
+  .agendamento
     position: relative;
-    height: 20px;
+    height: 0;
     width: 100%;
     font-size: 10px;
-    color: #fff;
+    color: white;
     margin: 1px 0;
     display: flex;
     align-items: center;
     padding: 0 5px;
     border-left: 10px solid transparent;
-  }
-  .agendamento.dragged,
-  .legend-situacao.dragged {
-    background: #00f;
-    opacity: 0.4;
-    color: #000;
-  }
-  .draggable {
-    cursor: grab;
-  }
-  .caceled {
+    &.dragged {
+      background: blue;
+      opacity: 0.4;
+      color: black;
+    }
+
+  .draggable
+    cursor: grab
+
+  .caceled
     border-top: 10px solid #d4182d;
     border-bottom: 10px solid #d4182d;
-  }
-  .marked {
+  .marked
     border-top: 10px solid #2370ff;
     border-bottom: 10px solid #2370ff;
-  }
-  .relocated {
+  .relocated
     border-top: 10px solid #37a6b8;
     border-bottom: 10px solid #37a6b8;
-  }
-  .confirmed {
+  .confirmed
     border-top: 10px solid #2b8713;
     border-bottom: 10px solid #2b8713;
-  }
-  .hovered {
+  .hovered
     border: dotted 3px #aa8217 !important;
-  }
-  .legend {
+
+  .legend
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height 100%
     display: flex;
     flex-direction: row;
-    align-items: center;
-  }
-  .legend-situacao {
-    width: 100px;
-    margin-right: 3px;
-  }
-  .multiplydays a:after {
-    content: "";
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid #2370ff;
-    position: absolute;
-    right: -10px;
-    top: -10px;
-    z-index: 1;
-  }
-  .not-current {
-    color: #c0c0c0;
-    pointer-events: none;
-    opacity: 0.5;
-  }
-  .diaDeAula {
-    color: #008000;
-    font-size: 1.2em;
-    cursor: pointer;
-  }
-  .today {
-    font-weight: 700;
-    color: #009688;
-    font-size: 1em;
-  }
-  .btnBack {
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translate(0%, 50%);
-    width: 20px;
-    height: 20px;
-  }
-  .btnNext {
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translate(0%, 50%);
-    width: 20px;
-    height: 20px;
-  }
-  .btnCurrentDay {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .btnBack,
-  .btnNext,
-  .btnCurrentDay {
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 1px;
-    font-size: 1em;
-    color: #009688;
-    cursor: pointer;
-    font-family: "Roboto Condensed", sans-serif;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-  }
-  .btnBack:hover,
-  .btnNext:hover,
-  .btnCurrentDay:hover {
-    color: #28283b;
-    font-weight: bold;
-  }
-  .btnBack:focus,
-  .btnNext:focus,
-  .btnCurrentDay:focus {
-    outline: none;
-    box-shadow: none;
-  }
+    align-items center
+  .legend-situacao
+    @extends .agendamento
+    width 100px
+    margin-right 3px
 
+  .multiplydays
+    & a:after {
+      content: "";
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid #2370ff;
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      z-index: 1;
+    }
+
+  .not-current
+    color #c0c0c0
+    pointer-events none
+    opacity 0.5
+
+  .diaDeAula
+    color green
+    font-size 1.2em
+    cursor pointer
+
+  .today
+    font-weight 700
+    color rgb(0, 150, 136)
+    font-size 1em
+
+  .btnBack
+    position absolute
+    left 0
+    top 0
+    transform translate(0%, 50%)
+    width 20px
+    height 20px
+
+  .btnNext
+    position absolute
+    right 0
+    top 0
+    transform translate(0%, 50%)
+    width 20px
+    height 20px
+
+  .btnCurrentDay
+    position absolute
+    left 50%
+    top 50%
+    transform translate(-50%, -50%)
+
+  .btnBack, .btnNext, .btnCurrentDay
+    border 1px solid
+    border-radius 5px
+    padding 1px
+    font-size 1em
+    color rgb(0, 150, 136)
+    cursor pointer
+    font-family "Roboto Condensed", sans-serif
+    text-transform uppercase
+    transition all 0.3s ease
+    &:hover
+      color #28283b
+      font-weight bold
+    &:focus
+      outline none
+      box-shadow none
 </style>
